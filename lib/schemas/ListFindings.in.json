@@ -1,0 +1,129 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "detectorId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "ListFindings request body.",
+            "properties": {
+                "FindingCriteria": {
+                    "description": "Represents the criteria used for querying findings.",
+                    "properties": {
+                        "Criterion": {
+                            "description": "Represents a map of finding properties that match specified conditions and values when querying findings.",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "description": "Finding attribute (for example, accountId) for which conditions and values must be specified when querying findings.",
+                                        "properties": {
+                                            "Eq": {
+                                                "description": "Represents the equal condition to be applied to a single field when querying for findings.",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "Gt": {
+                                                "description": "Represents the greater than condition to be applied to a single field when querying for findings.",
+                                                "type": "integer"
+                                            },
+                                            "Gte": {
+                                                "description": "Represents the greater than equal condition to be applied to a single field when querying for findings.",
+                                                "type": "integer"
+                                            },
+                                            "Lt": {
+                                                "description": "Represents the less than condition to be applied to a single field when querying for findings.",
+                                                "type": "integer"
+                                            },
+                                            "Lte": {
+                                                "description": "Represents the less than equal condition to be applied to a single field when querying for findings.",
+                                                "type": "integer"
+                                            },
+                                            "Neq": {
+                                                "description": "Represents the not equal condition to be applied to a single field when querying for findings.",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "MaxResults": {
+                    "description": "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.",
+                    "maximum": 50,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListFindings action. For subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.",
+                    "type": "string"
+                },
+                "SortCriteria": {
+                    "description": "Represents the criteria used for sorting findings.",
+                    "properties": {
+                        "AttributeName": {
+                            "description": "Represents the finding attribute (for example, accountId) by which to sort findings.",
+                            "type": "string"
+                        },
+                        "OrderBy": {
+                            "description": "Order by which the sorted findings are to be displayed.",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

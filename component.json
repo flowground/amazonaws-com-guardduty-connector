@@ -1,0 +1,754 @@
+{
+    "title": "Amazon GuardDuty",
+    "description": "Assess, monitor, manage, and remediate security issues across your AWS infrastructure, applications, and data.",
+    "docsUrl": "https://aws.amazon.com/guardduty/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/guardduty/2017-11-28/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://guardduty.amazonaws.com/",
+                    "http://guardduty.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ListDetectors": {
+            "main": "./lib/actions/ListDetectors.js",
+            "title": "Lists detectorIds of all the existing Amazon GuardDuty detector resources.",
+            "description": "Lists detectorIds of all the existing Amazon GuardDuty detector resources.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListDetectors.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateDetector": {
+            "main": "./lib/actions/CreateDetector.js",
+            "title": "Creates a single Amazon GuardDuty detector. A detector is an object that represents the GuardDuty service. A detector must be created in order for GuardDuty to become operational.",
+            "description": "Creates a single Amazon GuardDuty detector. A detector is an object that represents the GuardDuty service. A detector must be created in order for GuardDuty to become operational.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateDetector.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteDetector": {
+            "main": "./lib/actions/DeleteDetector.js",
+            "title": "Deletes a Amazon GuardDuty detector specified by the detector ID.",
+            "description": "Deletes a Amazon GuardDuty detector specified by the detector ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteDetector.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDetector": {
+            "main": "./lib/actions/GetDetector.js",
+            "title": "Retrieves an Amazon GuardDuty detector specified by the detectorId.",
+            "description": "Retrieves an Amazon GuardDuty detector specified by the detectorId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDetector.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateDetector": {
+            "main": "./lib/actions/UpdateDetector.js",
+            "title": "Updates an Amazon GuardDuty detector specified by the detectorId.",
+            "description": "Updates an Amazon GuardDuty detector specified by the detectorId.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateDetector.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListFilters": {
+            "main": "./lib/actions/ListFilters.js",
+            "title": "Returns a paginated list of the current filters.",
+            "description": "Returns a paginated list of the current filters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListFilters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateFilter": {
+            "main": "./lib/actions/CreateFilter.js",
+            "title": "Creates a filter using the specified finding criteria.",
+            "description": "Creates a filter using the specified finding criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateFilter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteFilter": {
+            "main": "./lib/actions/DeleteFilter.js",
+            "title": "Deletes the filter specified by the filter name.",
+            "description": "Deletes the filter specified by the filter name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteFilter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetFilter": {
+            "main": "./lib/actions/GetFilter.js",
+            "title": "Returns the details of the filter specified by the filter name.",
+            "description": "Returns the details of the filter specified by the filter name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetFilter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateFilter": {
+            "main": "./lib/actions/UpdateFilter.js",
+            "title": "Updates the filter specified by the filter name.",
+            "description": "Updates the filter specified by the filter name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateFilter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListFindings": {
+            "main": "./lib/actions/ListFindings.js",
+            "title": "Lists Amazon GuardDuty findings for the specified detector ID.",
+            "description": "Lists Amazon GuardDuty findings for the specified detector ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListFindings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ArchiveFindings": {
+            "main": "./lib/actions/ArchiveFindings.js",
+            "title": "Archives Amazon GuardDuty findings specified by the list of finding IDs.",
+            "description": "Archives Amazon GuardDuty findings specified by the list of finding IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ArchiveFindings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateSampleFindings": {
+            "main": "./lib/actions/CreateSampleFindings.js",
+            "title": "Generates example findings of types specified by the list of finding types. If 'NULL' is specified for findingTypes, the API generates example findings of all supported finding types.",
+            "description": "Generates example findings of types specified by the list of finding types. If 'NULL' is specified for findingTypes, the API generates example findings of all supported finding types.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateSampleFindings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateFindingsFeedback": {
+            "main": "./lib/actions/UpdateFindingsFeedback.js",
+            "title": "Marks specified Amazon GuardDuty findings as useful or not useful.",
+            "description": "Marks specified Amazon GuardDuty findings as useful or not useful.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateFindingsFeedback.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetFindings": {
+            "main": "./lib/actions/GetFindings.js",
+            "title": "Describes Amazon GuardDuty findings specified by finding IDs.",
+            "description": "Describes Amazon GuardDuty findings specified by finding IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetFindings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetFindingsStatistics": {
+            "main": "./lib/actions/GetFindingsStatistics.js",
+            "title": "Lists Amazon GuardDuty findings' statistics for the specified detector ID.",
+            "description": "Lists Amazon GuardDuty findings' statistics for the specified detector ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetFindingsStatistics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UnarchiveFindings": {
+            "main": "./lib/actions/UnarchiveFindings.js",
+            "title": "Unarchives Amazon GuardDuty findings specified by the list of finding IDs.",
+            "description": "Unarchives Amazon GuardDuty findings specified by the list of finding IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UnarchiveFindings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListIPSets": {
+            "main": "./lib/actions/ListIPSets.js",
+            "title": "Lists the IPSets of the GuardDuty service specified by the detector ID.",
+            "description": "Lists the IPSets of the GuardDuty service specified by the detector ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListIPSets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateIPSet": {
+            "main": "./lib/actions/CreateIPSet.js",
+            "title": "Creates a new IPSet - a list of trusted IP addresses that have been whitelisted for secure communication with AWS infrastructure and applications.",
+            "description": "Creates a new IPSet - a list of trusted IP addresses that have been whitelisted for secure communication with AWS infrastructure and applications.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateIPSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteIPSet": {
+            "main": "./lib/actions/DeleteIPSet.js",
+            "title": "Deletes the IPSet specified by the IPSet ID.",
+            "description": "Deletes the IPSet specified by the IPSet ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteIPSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetIPSet": {
+            "main": "./lib/actions/GetIPSet.js",
+            "title": "Retrieves the IPSet specified by the IPSet ID.",
+            "description": "Retrieves the IPSet specified by the IPSet ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetIPSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateIPSet": {
+            "main": "./lib/actions/UpdateIPSet.js",
+            "title": "Updates the IPSet specified by the IPSet ID.",
+            "description": "Updates the IPSet specified by the IPSet ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateIPSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetMasterAccount": {
+            "main": "./lib/actions/GetMasterAccount.js",
+            "title": "Provides the details for the GuardDuty master account to the current GuardDuty member account.",
+            "description": "Provides the details for the GuardDuty master account to the current GuardDuty member account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetMasterAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AcceptInvitation": {
+            "main": "./lib/actions/AcceptInvitation.js",
+            "title": "Accepts the invitation to be monitored by a master GuardDuty account.",
+            "description": "Accepts the invitation to be monitored by a master GuardDuty account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AcceptInvitation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateFromMasterAccount": {
+            "main": "./lib/actions/DisassociateFromMasterAccount.js",
+            "title": "Disassociates the current GuardDuty member account from its master account.",
+            "description": "Disassociates the current GuardDuty member account from its master account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateFromMasterAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListMembers": {
+            "main": "./lib/actions/ListMembers.js",
+            "title": "Lists details about all member accounts for the current GuardDuty master account.",
+            "description": "Lists details about all member accounts for the current GuardDuty master account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateMembers": {
+            "main": "./lib/actions/CreateMembers.js",
+            "title": "Creates member accounts of the current AWS account by specifying a list of AWS account IDs. The current AWS account can then invite these members to manage GuardDuty in their accounts.",
+            "description": "Creates member accounts of the current AWS account by specifying a list of AWS account IDs. The current AWS account can then invite these members to manage GuardDuty in their accounts.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteMembers": {
+            "main": "./lib/actions/DeleteMembers.js",
+            "title": "Deletes GuardDuty member accounts (to the current GuardDuty master account) specified by the account IDs.",
+            "description": "Deletes GuardDuty member accounts (to the current GuardDuty master account) specified by the account IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateMembers": {
+            "main": "./lib/actions/DisassociateMembers.js",
+            "title": "Disassociates GuardDuty member accounts (to the current GuardDuty master account) specified by the account IDs.",
+            "description": "Disassociates GuardDuty member accounts (to the current GuardDuty master account) specified by the account IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetMembers": {
+            "main": "./lib/actions/GetMembers.js",
+            "title": "Retrieves GuardDuty member accounts (to the current GuardDuty master account) specified by the account IDs.",
+            "description": "Retrieves GuardDuty member accounts (to the current GuardDuty master account) specified by the account IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InviteMembers": {
+            "main": "./lib/actions/InviteMembers.js",
+            "title": "Invites other AWS accounts (created as members of the current AWS account by CreateMembers) to enable GuardDuty and allow the current AWS account to view and manage these accounts' GuardDuty findings on their behalf as the master account.",
+            "description": "Invites other AWS accounts (created as members of the current AWS account by CreateMembers) to enable GuardDuty and allow the current AWS account to view and manage these accounts' GuardDuty findings on their behalf as the master account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InviteMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartMonitoringMembers": {
+            "main": "./lib/actions/StartMonitoringMembers.js",
+            "title": "Re-enables GuardDuty to monitor findings of the member accounts specified by the account IDs. A master GuardDuty account can run this command after disabling GuardDuty from monitoring these members' findings by running StopMonitoringMembers.",
+            "description": "Re-enables GuardDuty to monitor findings of the member accounts specified by the account IDs. A master GuardDuty account can run this command after disabling GuardDuty from monitoring these members' findings by running StopMonitoringMembers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartMonitoringMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StopMonitoringMembers": {
+            "main": "./lib/actions/StopMonitoringMembers.js",
+            "title": "Disables GuardDuty from monitoring findings of the member accounts specified by the account IDs. After running this command, a master GuardDuty account can run StartMonitoringMembers to re-enable GuardDuty to monitor these members' findings.",
+            "description": "Disables GuardDuty from monitoring findings of the member accounts specified by the account IDs. After running this command, a master GuardDuty account can run StartMonitoringMembers to re-enable GuardDuty to monitor these members' findings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StopMonitoringMembers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListThreatIntelSets": {
+            "main": "./lib/actions/ListThreatIntelSets.js",
+            "title": "Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID.",
+            "description": "Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListThreatIntelSets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateThreatIntelSet": {
+            "main": "./lib/actions/CreateThreatIntelSet.js",
+            "title": "Create a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates findings based on ThreatIntelSets.",
+            "description": "Create a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses. GuardDuty generates findings based on ThreatIntelSets.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateThreatIntelSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteThreatIntelSet": {
+            "main": "./lib/actions/DeleteThreatIntelSet.js",
+            "title": "Deletes ThreatIntelSet specified by the ThreatIntelSet ID.",
+            "description": "Deletes ThreatIntelSet specified by the ThreatIntelSet ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteThreatIntelSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetThreatIntelSet": {
+            "main": "./lib/actions/GetThreatIntelSet.js",
+            "title": "Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.",
+            "description": "Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetThreatIntelSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateThreatIntelSet": {
+            "main": "./lib/actions/UpdateThreatIntelSet.js",
+            "title": "Updates the ThreatIntelSet specified by ThreatIntelSet ID.",
+            "description": "Updates the ThreatIntelSet specified by ThreatIntelSet ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateThreatIntelSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListInvitations": {
+            "main": "./lib/actions/ListInvitations.js",
+            "title": "Lists all GuardDuty membership invitations that were sent to the current AWS account.",
+            "description": "Lists all GuardDuty membership invitations that were sent to the current AWS account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListInvitations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetInvitationsCount": {
+            "main": "./lib/actions/GetInvitationsCount.js",
+            "title": "Returns the count of all GuardDuty membership invitations that were sent to the current member account except the currently accepted invitation.",
+            "description": "Returns the count of all GuardDuty membership invitations that were sent to the current member account except the currently accepted invitation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetInvitationsCount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeclineInvitations": {
+            "main": "./lib/actions/DeclineInvitations.js",
+            "title": "Declines invitations sent to the current member account by AWS account specified by their account IDs.",
+            "description": "Declines invitations sent to the current member account by AWS account specified by their account IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeclineInvitations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteInvitations": {
+            "main": "./lib/actions/DeleteInvitations.js",
+            "title": "Deletes invitations sent to the current member account by AWS accounts specified by their account IDs.",
+            "description": "Deletes invitations sent to the current member account by AWS accounts specified by their account IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteInvitations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

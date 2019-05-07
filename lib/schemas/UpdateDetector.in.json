@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "detectorId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "UpdateDetector request body.",
+            "properties": {
+                "Enable": {
+                    "description": "Updated boolean value for the detector that specifies whether the detector is enabled.",
+                    "type": "boolean"
+                },
+                "FindingPublishingFrequency": {
+                    "description": "A enum value that specifies how frequently customer got Finding updates published.",
+                    "enum": [
+                        "FIFTEEN_MINUTES",
+                        "ONE_HOUR",
+                        "SIX_HOURS"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

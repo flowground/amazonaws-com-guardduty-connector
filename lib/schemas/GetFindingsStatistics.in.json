@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "detectorId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "GetFindingsStatistics request body.",
+            "properties": {
+                "FindingCriteria": {
+                    "description": "Represents the criteria used for querying findings.",
+                    "properties": {
+                        "Criterion": {
+                            "description": "Represents a map of finding properties that match specified conditions and values when querying findings.",
+                            "items": {
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "description": "Finding attribute (for example, accountId) for which conditions and values must be specified when querying findings.",
+                                        "properties": {
+                                            "Eq": {
+                                                "description": "Represents the equal condition to be applied to a single field when querying for findings.",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "Gt": {
+                                                "description": "Represents the greater than condition to be applied to a single field when querying for findings.",
+                                                "type": "integer"
+                                            },
+                                            "Gte": {
+                                                "description": "Represents the greater than equal condition to be applied to a single field when querying for findings.",
+                                                "type": "integer"
+                                            },
+                                            "Lt": {
+                                                "description": "Represents the less than condition to be applied to a single field when querying for findings.",
+                                                "type": "integer"
+                                            },
+                                            "Lte": {
+                                                "description": "Represents the less than equal condition to be applied to a single field when querying for findings.",
+                                                "type": "integer"
+                                            },
+                                            "Neq": {
+                                                "description": "Represents the not equal condition to be applied to a single field when querying for findings.",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "FindingStatisticTypes": {
+                    "description": "Types of finding statistics to retrieve.",
+                    "items": {
+                        "description": "The types of finding statistics.",
+                        "enum": [
+                            "COUNT_BY_SEVERITY"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "FindingStatisticTypes"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

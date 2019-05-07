@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "detectorId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "CreateMembers request body.",
+            "properties": {
+                "AccountDetails": {
+                    "description": "A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.",
+                    "items": {
+                        "description": "An object containing the member's accountId and email address.",
+                        "properties": {
+                            "AccountId": {
+                                "description": "Member account ID.",
+                                "type": "string"
+                            },
+                            "Email": {
+                                "description": "Member account's email address.",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Email",
+                            "AccountId"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "AccountDetails"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

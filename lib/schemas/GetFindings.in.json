@@ -1,0 +1,76 @@
+{
+    "type": "object",
+    "properties": {
+        "detectorId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "GetFindings request body.",
+            "properties": {
+                "FindingIds": {
+                    "description": "IDs of the findings that you want to retrieve.",
+                    "items": {
+                        "description": "The unique identifier for the Finding",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SortCriteria": {
+                    "description": "Represents the criteria used for sorting findings.",
+                    "properties": {
+                        "AttributeName": {
+                            "description": "Represents the finding attribute (for example, accountId) by which to sort findings.",
+                            "type": "string"
+                        },
+                        "OrderBy": {
+                            "description": "Order by which the sorted findings are to be displayed.",
+                            "enum": [
+                                "ASC",
+                                "DESC"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "FindingIds"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

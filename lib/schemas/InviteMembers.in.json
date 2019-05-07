@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "detectorId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "InviteMembers request body.",
+            "properties": {
+                "AccountIds": {
+                    "description": "A list of account IDs of the accounts that you want to invite to GuardDuty as members.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "DisableEmailNotification": {
+                    "description": "A boolean value that specifies whether you want to disable email notification to the accounts that you’re inviting to GuardDuty as members.",
+                    "type": "boolean"
+                },
+                "Message": {
+                    "description": "The invitation message that you want to send to the accounts that you’re inviting to GuardDuty as members.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "AccountIds"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
